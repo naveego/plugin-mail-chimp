@@ -1,0 +1,39 @@
+{
+  "id": "plugin-web-request",
+  "displayName": "Web Request",
+  "description": "Plugin for sending a web request on a change to a Golden Record.",
+  "apiVersion": "2",
+  "versionDescription": "Version 2",
+  "version": "2.0.0",
+  "iconFile": "icon.png",
+  "executable": "PluginWebRequest",
+  "kind": "publisher",
+  "os": "$GOOS",
+  "arch": "$GOARCH",
+  "accessGroups": [],
+  "canConfigure": true,
+  "canProduceMultipleSchemas": true,
+  "canAcceptQueryBasedSchemas": false,
+  "canUseOAuth": false,
+  "canConfigureWrite": true,
+  "canWrite": true,
+  "configSchema": {
+    "ui": {
+      "ui:order": [
+        "Name"
+      ]
+    },
+    "schema": {
+      "type": "object",
+      "properties": {
+        "Name" : {
+          "type": "string",
+          "title": "Name",
+          "description": "Connection name."
+        }
+      },
+      "required": [
+      ]
+    }
+  }
+}
