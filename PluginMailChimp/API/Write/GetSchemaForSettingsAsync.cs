@@ -26,9 +26,9 @@ namespace PluginMailChimp.API.Write
                 Query = template.Slug,
             };
 
-            var templateParams = FindParamsRegex.Match(template.PublishCode);
+            var templateParams = FindParamsRegex.Matches(template.PublishCode);
 
-            foreach (var match in templateParams.Captures)
+            foreach (var match in templateParams)
             {
                 var property = new Property
                 {

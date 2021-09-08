@@ -1,12 +1,12 @@
 {
-  "id": "plugin-web-request",
-  "displayName": "Web Request",
-  "description": "Plugin for sending a web request on a change to a Golden Record.",
+  "id": "plugin-mail-chimp",
+  "displayName": "Mailchimp",
+  "description": "Plugin for using Mailchimp to send templated emails.",
   "apiVersion": "2",
   "versionDescription": "Version 2",
   "version": "2.0.0",
-  "iconFile": "icon.png",
-  "executable": "PluginWebRequest",
+  "iconFile": "icon.jpg",
+  "executable": "PluginMailChimp",
   "kind": "publisher",
   "os": "$GOOS",
   "arch": "$GOARCH",
@@ -20,19 +20,20 @@
   "configSchema": {
     "ui": {
       "ui:order": [
-        "Name"
+        "ApiKey"
       ]
     },
     "schema": {
       "type": "object",
       "properties": {
-        "Name" : {
+        "ApiKey" : {
           "type": "string",
-          "title": "Name",
-          "description": "Connection name."
+          "title": "Api Key",
+          "description": "Api Key to use for authentication."
         }
       },
       "required": [
+        "ApiKey"
       ]
     }
   }

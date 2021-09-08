@@ -48,13 +48,17 @@ namespace PluginMailChimp.API.Write
                 var bodyProperties = schema.Properties.Where(p => p.Id.StartsWith(Constants.BodyPropertyPrefix));
                 foreach (var property in bodyProperties)
                 {
+                    var trimmedProperty = FindParamsRegex.Match(property.Id).Captures.First().Value;
+                    trimmedProperty = trimmedProperty.TrimStart('{');
+                    trimmedProperty = trimmedProperty.TrimEnd('}');
+                    
                     try
                     {
                         if (recordMap.ContainsKey(property.Id))
                         {
                             bodyVars.Add(new ContentObject
                             {
-                                Name = property.Id,
+                                Name = trimmedProperty,
                                 Content = recordMap[property.Id].ToString()
                             });
                         }
@@ -62,7 +66,7 @@ namespace PluginMailChimp.API.Write
                         {
                             bodyVars.Add(new ContentObject
                             {
-                                Name = property.Id,
+                                Name = trimmedProperty,
                                 Content = ""
                             });
                         }
@@ -71,7 +75,7 @@ namespace PluginMailChimp.API.Write
                     {
                         bodyVars.Add(new ContentObject
                         {
-                            Name = property.Id,
+                            Name = trimmedProperty,
                             Content = ""
                         });
                     }
@@ -104,6 +108,7 @@ namespace PluginMailChimp.API.Write
                         }
                     }
                 };
+                var bodyJson = JsonConvert.SerializeObject(body);
                 var json = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8,
                     "application/json");
                 

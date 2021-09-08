@@ -301,7 +301,7 @@ namespace PluginMailChimp.Plugin
         {
             try
             {
-                Logger.Info($"Sending web requests...");
+                Logger.Info($"Sending templated emails...");
 
                 var schema = _server.WriteSettings.Schema;
                 var inCount = 0;
