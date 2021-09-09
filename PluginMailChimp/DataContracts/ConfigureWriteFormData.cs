@@ -4,6 +4,6 @@ namespace PluginMailChimp.DataContracts
 {
     public class ConfigureWriteFormData
     {
-        public string TemplateName { get; set; }
+        public string Template { get; set; }
     }
 }

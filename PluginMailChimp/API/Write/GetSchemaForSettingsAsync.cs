@@ -15,7 +15,7 @@ namespace PluginMailChimp.API.Write
 
         public static async Task<Schema> GetSchemaForSettingsAsync(ConfigureWriteFormData formData, List<Template> templates)
         {
-            var template = templates.First(x => x.PublishName == formData.TemplateName);
+            var template = templates.First(x => x.PublishName == formData.Template);
             
             var schema = new Schema
             {

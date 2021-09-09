@@ -41,7 +41,7 @@ namespace PluginMailChimpTest.Plugin
         {
             return new ConfigureWriteFormData
             {
-                TemplateName = templateName
+                Template = templateName
             };
         }
 
